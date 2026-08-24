@@ -1,7 +1,5 @@
 # Document Summary Assistant
 
-# Document Summary Assistant
-
 **Live Application:** https://document-summaryassistant.onrender.com/
 
 An AI-style document summarization web application that accepts PDF and image documents, extracts readable text, and generates short, medium, or long summaries with key points.
