@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Upload PDF and image documents and generate concise summaries." />
+  <title>Document Summary Assistant</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="hero">
+      <div class="badge">AI DOCUMENT TOOL</div>
+      <h1>Document Summary Assistant</h1>
+      <p>Upload a PDF or scanned image and turn it into a clear summary with key points.</p>
+    </header>
+
+    <section class="card">
+      <div id="dropZone" class="drop-zone" tabindex="0">
+        <div class="upload-icon">↑</div>
+        <h2>Drop your document here</h2>
+        <p>Drag & drop here, or choose a file from your device</p>
+        <label class="button primary" for="fileInput">Choose file</label>
+        <input id="fileInput" type="file" accept=".pdf,.png,.jpg,.jpeg,.webp" hidden />
+        <small>PDF, PNG, JPG, JPEG or WEBP · Max 10 MB</small>
+      </div>
+
+      <div id="fileInfo" class="file-info hidden"></div>
+      <div id="error" class="alert error hidden"></div>
+
+      <div id="controls" class="controls hidden">
+        <div>
+          <label for="summaryLength">Summary length</label>
+          <select id="summaryLength">
+            <option value="short">Short</option>
+            <option value="medium" selected>Medium</option>
+            <option value="long">Long</option>
+          </select>
+        </div>
+        <button id="summarizeBtn" class="button primary">Generate summary</button>
+      </div>
+
+      <div id="loading" class="loading hidden">
+        <div class="spinner"></div>
+        <span id="loadingText">Processing document…</span>
+      </div>
+    </section>
+
+    <section id="results" class="results hidden">
+      <div class="result-header">
+        <div>
+          <span class="eyebrow">RESULT</span>
+          <h2>Summary</h2>
+        </div>
+        <button id="copyBtn" class="button secondary">Copy summary</button>
+      </div>
+
+      <article class="summary-box">
+        <p id="summaryText"></p>
+      </article>
+
+      <div class="result-grid">
+        <article class="panel">
+          <h3>Key points</h3>
+          <ul id="keyPoints"></ul>
+        </article>
+
+        <article class="panel">
+          <h3>Document details</h3>
+          <div id="details"></div>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      <span>Document Summary Assistant</span>
+      <span>Built with FastAPI · PyMuPDF · Tesseract</span>
+    </footer>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
